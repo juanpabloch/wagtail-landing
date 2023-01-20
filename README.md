@@ -23,7 +23,7 @@ Debemos tener instalados:
 > (`<nombre entorno>`) λ
 
 * Vamos a clonar el repositorio con la app: 
-```git clone https://gitlab.8amarketing.com/the-8agency.com/wagtail/cms-wagtail-base.git```
+```git clone https://github.com/juanpabloch/wagtail-landing.git```
 
 * Cuando termine el proceso entramos en la carpeta creada: ```cd cms-wagtail-base```
 * Vamos a instalar las dependencias de la app (puede tardar un poco dependiando de la coneccion a internet):  
