@@ -1,0 +1,50 @@
+[
+    {
+        "id":0,
+        "title":"Getting Started",
+        "body":"If you just got approved for the Zendesk for Startup program, this is your first step! You will find how to activate your Zendesk Support Suite+ Sell promotion in the following article. ",
+        "button":"Learn how to apply",
+        "href":"https://support.zendesk.com/hc/en-us/articles/360034951093-Startups-program-How-to-activate-your-Zendesk-Support-Suite-Sell-promotion",
+        "imgUrl":"./assets/images/article-1.jpg"
+    },
+    {
+        "id":1,
+        "title":"CX Academy",
+        "body":"Whether you’re a startup new to the program or started your trial and are looking for some great tips and tricks, we’ve got you covered. The CX Academy takes you through a series of courses specifically designed to help startups get up and running fast.",
+        "button":"Visit now",
+        "href":"https://support.zendesk.com/hc/en-us/articles/360055461833-Zendesk-CX-Academy",
+        "imgUrl":"./assets/images/article-2.jpg"
+    },
+    {
+        "id":2,
+        "title":"Partners",
+        "body":"It takes a village to raise a startup, and our partners make up that village! From accelerators to technology partners to venture capitalists and more, we have a robust community for you. Check out some of the exclusive deals our partners put together for you.",
+        "button":"See partner deals",
+        "href":"https://google.com",
+        "imgUrl":"./assets/images/article-3.jpg"
+    },
+    {
+        "id":3,
+        "title":"Blog",
+        "body":"We take a membership-driven approach to blogs, which means in addition to getting insights for your business from Zendesk, you can also hear from startups themselves. You get the best source of information for customer service, sales tips, guides, and industry best practices from a variety of voices.",
+        "button":"Read startup insights",
+        "href":"https://www.zendesk.com/blog/search/?query=startups",
+        "imgUrl":"./assets/images/article-4.jpg"
+    },
+    {
+        "id":4,
+        "title":"Join Slack",
+        "body":"Slack is a great way to get real-time, meaningful engagement with Zendesk founders, leaders, and shakers. Our active community regularly hosts live Q&A’s, posts and fills positions on our job board, and shares practical and useful Zendesk hacks.",
+        "button":"Join Startups Central Slack",
+        "href":"https://join.slack.com/t/startup-central-group/shared_invite/zt-h34ws2g7-zgvUmMU95hKRTqw4VQZGoQ",
+        "imgUrl":"./assets/images/article-5.jpg"
+    },
+    {
+        "id":5,
+        "title":"Events",
+        "body":"The mission: to build a community for innovative business leaders to come together in partnership to share and engage in relevant discussions. Our content is driven by the community, for the community, so we are always looking for new speakers! You’re welcome to join our upcoming events (virtual for now, of course.)",
+        "button":"See upcoming events",
+        "href":"https://www.meetup.com/zen-SF",
+        "imgUrl":"./assets/images/hero.jpg"
+    }
+]

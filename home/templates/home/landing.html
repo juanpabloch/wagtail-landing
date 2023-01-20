@@ -1,0 +1,563 @@
+{% load static %}
+{% load wagtailcore_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zendesk Startups Central</title>
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <meta name="description" content="Zendesk for Startups program membership portal" />
+  <link rel="stylesheet" href="{% static 'css/reset-min.css' %}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'css/fonts-faces.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar-primary">
+      <div class="container">
+        <div class="navbar-logo">
+          <a href="#">
+            <img src="{% static 'images/zendesk-logo.svg' %}" alt="" />
+          </a>
+        </div>
+        <div class="navbar-links">
+          <!-- Products -->
+          <div class="navbar-links_link has-dropdown">
+            <span>
+              Products
+              <button class='arrow-btn-mobile-navbar'>❯</button>
+            </span>
+            <div class="navbar-links_link-dropdown">
+              <div class="columns">
+                <div class="column column-8">
+                  <div class="title">
+                    Products
+                  </div>
+                  <div class="lists">
+                    <ul>
+                      <li class="big-link margin-bottom-1">
+                        <a onclick="gtag('event', 'click', {event_label: 'The Support Suite', event_category:'navigation'})" href="https://www.zendesk.com/support-suite/">
+                          <h3>The Support Suite</h3>
+                          <small>
+                            The full service experience
+                          </small>
+                        </a>
+                      </li>
+                      <li class="big-link border-color-green">
+                        <a onclick="gtag('event', 'click', {event_label: 'Support', event_category:'navigation'})" href="https://www.zendesk.com/support/">
+                          <h3>Support</h3>
+                          <small>
+                            Integrated customer support
+                          </small>
+                        </a>
+                      </li>
+                      <li class="big-link border-color-crimson">
+                        <a onclick="gtag('event', 'click', {event_label: 'Guide', event_category:'navigation'})" href="https://www.zendesk.com/guide/">
+                          <h3>Guide</h3>
+                          <small>
+                          Knowledge base and smart&nbsp;self&nbsp;-&nbsp;service
+                          </small>
+                        </a>
+                      </li>
+                      <li class="big-link border-color-orange">
+                        <a onclick="gtag('event', 'click', {event_label: 'Chat', event_category:'navigation'})" href="https://www.zendesk.com/chat/">
+                          <h3>Chat</h3>
+                          <small>
+                          Live chat and messaging
+                          </small>
+                        </a>
+                      </li>
+                      <li class="big-link border-color-yellow">
+                        <a onclick="gtag('event', 'click', {event_label: 'Talk', event_category:'navigation'})" href="https://www.zendesk.com/talk/">
+                          <h3>Talk</h3>
+                          <small>
+                          Integrated voice software
+                          </small>
+                        </a>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="big-link margin-bottom-1">
+                          <a onclick="gtag('event', 'click', {event_label: 'The Sales Suite', event_category:'navigation'})" href="https://www.zendesk.com/sales-suite/">
+                            <h3>The Sales Suite</h3>
+                            <small>
+                            The modern sales solution
+                            </small>
+                          </a>
+                        </li>
+                      <li class="big-link border-color-brown">
+                          <a onclick="gtag('event', 'click', {event_label: 'Sell', event_category:'navigation'})" href="https://www.zendesk.com/sell/">
+                            <h3>Sell</h3>
+                            <small>
+                            Sales CRM
+                            </small>
+                          </a>
+                        </li>
+                      <li class="big-link border-color-skyblue">
+                          <a onclick="gtag('event', 'click', {event_label: 'Explore', event_category:'navigation'})" href="https://www.zendesk.com/explore/">
+                            <h3>Explore</h3>
+                            <small>
+                            Analytics and reporting
+                            </small>
+                          </a>
+                        </li>
+                      <li class="big-link border-color-pink">
+                          <a onclick="gtag('event', 'click', {event_label: 'Gather', event_category:'navigation'})" href="https://www.zendesk.com/gather/">
+                            <h3>Gather</h3>
+                            <small>
+                            Community forum
+                            </small>
+                          </a>
+                        </li>
+                      
+                      
+                    </ul>
+                  </div>
+                </div>
+                <div class="column column-3 border-left-1">
+                    <div class="title">
+                      Platform
+                    </div>
+                    <div class="lists">
+                        <ul>
+                            <li class="big-link">
+                            <a onclick="gtag('event', 'click', {event_label: 'Zendesk Sunshine', event_category:'navigation'})" href="https://www.zendesk.com/platform/">
+                              <h3>Zendesk Sunshine</h3>
+                              <small>
+                              The Zendesk platform: open, flexible, and powerful enough to build the best customer experiences
+                              </small>
+                            </a>
+                          </li>
+                            <li class="big-link">
+                            <a onclick="gtag('event', 'click', {event_label: 'Sunshine Conversations', event_category:'navigation'})" href="https://www.zendesk.com/conversations/">
+                              <h3>Sunshine Conversations</h3>
+                              <small>
+                              A new part of Sunshine that lets you build interactive messaging experiences
+                              </small>
+                            </a>
+                          </li>
+                            <li class="big-link">
+                            <a onclick="gtag('event', 'click', {event_label: 'Marketplace', event_category:'navigation'})" href="https://www.zendesk.com/apps/">
+                              <h3>Marketplace</h3>
+                              <small>
+                              Browse apps, integrations, and partners
+                              </small>
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-links_link">
+            <span>
+              <a onclick="gtag('event', 'click', {event_label: 'Pricing', event_category:'navigation'})" href="https://www.zendesk.com/product/pricing/">
+                Pricing
+              </a>
+            </span>
+          </div>
+          <!-- Solutions -->
+          <div class="navbar-links_link has-dropdown">
+            <span>
+              Solutions
+              <button class='arrow-btn-mobile-navbar'>❯</button>
+            </span>
+            <div class="navbar-links_link-dropdown">
+                <div class="columns">
+                  <div class="column column-6">
+                    <div class="title">
+                      industry
+                    </div>
+                    <div class="lists">
+                    <ul>
+                          <li class="">
+                            <a onclick="gtag('event', 'click', {event_label: 'Education', event_category:'navigation'})" class="" href="https://zendesk.com/education/">
+                             Education
+                            </a>
+                          </li>
+                          <li>
+                            <a onclick="gtag('event', 'click', {event_label: 'Financial Services', event_category:'navigation'})" class="" href="https://zendesk.com/financial-services/">
+                             Financial services
+                            </a>
+                          </li>
+                          <li class="">
+                            <a onclick="gtag('event', 'click', {event_label: 'Government', event_category:'navigation'})" class="" href="https://zendesk.com/government/">
+                             Government
+                            </a>
+                          </li>
+                          <li>
+                            <a onclick="gtag('event', 'click', {event_label: 'Healthcare', event_category:'navigation'})" class="" href="https://zendesk.com/healthcare/">
+                             Healthcare
+                            </a>
+                          </li>
+                          <li>
+                            <a onclick="gtag('event', 'click', {event_label: 'Manufacturing', event_category:'navigation'})" class="" href="https://zendesk.com/manufacturing/">
+                             Manufacturing
+                            </a>
+                          </li>
+                        </ul>
+                      <ul>
+                      <li>
+                            <a onclick="gtag('event', 'click', {event_label: 'Media', event_category:'navigation'})" href="https://zendesk.com/media/">
+                              Media
+                            </a>
+                          </li>
+                          <li>
+                            <a onclick="gtag('event', 'click', {event_label: 'Retail', event_category:'navigation'})" href="https://zendesk.com/retail/">
+                              Retail
+                            </a>
+                          </li>
+                          <li>
+                            <a onclick="gtag('event', 'click', {event_label: 'Software', event_category:'navigation'})" href="https://zendesk.com/software/">
+                              Software
+                            </a>
+                          </li>
+                          <li>
+                            <a onclick="gtag('event', 'click', {event_label: 'Telecommunications', event_category:'navigation'})" href="https://zendesk.com/telecommunications/">
+                              Telecommunications
+                            </a>
+                          </li>
+                      </ul>
+              
+                    </div>
+                  </div>
+                  <div class="column column-3">
+                    <div class="title">
+                      Company Type
+                    </div>
+                    <div class="lists">
+                      <ul>
+                      <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'Enterprise', event_category:'navigation'})"   href="https://zendesk.com/enterprise/">
+                            Enterprise
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'SMB', event_category:'navigation'})" href="https://zendesk.com/smb/">
+                            SMB
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'Startups', event_category:'navigation'})" href="https://zendesk.com/startups/">
+                            Startups
+                          </a>
+                        </li>
+                      </ul>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="column column-3">
+                    <div class="title">
+                      use-case
+                    </div>
+                    <div class="lists">
+                      <ul>
+                      <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'Remote Support', event_category:'navigation'})" href="https://zendesk.com/startups/" href="https://www.zendesk.com/remote-support-software/">
+                            Remote support
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'Self-service', event_category:'navigation'})" href="https://www.zendesk.com/self-service/">
+                            Self-service
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'Omnichannel', event_category:'navigation'})" href="https://www.zendesk.com/omnichannel/">
+                            Omnichannel
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'Internal help desk', event_category:'navigation'})" href="https://www.zendesk.com/internal-help-desk/">
+                            Internal help desk
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="gtag('event', 'click', {event_label: 'Sales CRM', event_category:'navigation'})" href="https://www.zendesk.com/sales/">
+                            Sales CRM
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- Demo -->
+          {% comment %} <div class="navbar-links_link">
+            <span>
+              <a onclick="gtag('event', 'click', {event_label: 'Demo', event_category:'navigation'})" href="https://www.zendesk.com/demo/">
+                Demo
+              </a>
+            </span>
+          </div> {% endcomment %}
+          <!-- Services -->
+          {% comment %} <div class="navbar-links_link">
+            <span>
+              <a onclick="gtag('event', 'click', {event_label: 'Services', event_category:'navigation'})" href="https://www.zendesk.com/customer-experience/">
+                Services
+              </a>
+            </span>
+          </div> {% endcomment %}
+          
+          <!--About-->
+          
+          {% if flex_pages %}
+            {% for newPage in flex_pages %}
+              <div class="navbar-links_link">
+                <span>
+                  <a onclick="gtag('event', 'click', {event_label: 'Services', event_category:'navigation'})" href="{% pageurl newPage %}">
+                    {{newPage.title}}
+                  </a>
+                </span>
+              </div>
+            {% endfor %}
+          {% endif %}
+            
+          <!-- Resources -->
+          <div class="navbar-links_link has-dropdown">
+            <span>
+              Resources
+              <button class='arrow-btn-mobile-navbar'>❯</button>
+            </span>
+            <div class="navbar-links_link-dropdown">
+              <div class="columns">
+                <div class="column column-6">
+                  <div class="lists">
+                    <ul>
+                    <li class='big-link'>
+                      <a onclick="gtag('event', 'click', {event_label: 'The Library', event_category:'navigation'})" href="https://zendesk.com/blog/">
+                        <h3>The Library</h3>
+                        <small>News, tips, and best practices</small>
+                      </a>
+                    </li>
+                   
+                    <li class='big-link'>
+                      <a onclick="gtag('event', 'click', {event_label: 'Webinars', event_category:'navigation'})" href="https://zendesk.com/company/events/#webinars">
+                        <h3>Webinars</h3>
+                        <small>Learn from wherever you are</small>
+                      </a>
+                    </li>
+                    <li class='big-link'>
+                      <a onclick="gtag('event', 'click', {event_label: 'Events', event_category:'navigation'})" href="https://zendesk.com/company/events/">
+                        <h3>Events</h3>
+                        <small>Let’s meet up—from a safe social distance</small>
+                      </a>
+                    </li>
+                  
+                    </ul>
+                  </div>
+                </div>
+                <div class="column column-6">
+                  <div class="lists">
+                    <ul>
+                      <li class='big-link'>
+                        <a onclick="gtag('event', 'click', {event_label: 'Developers', event_category:'navigation'})" href="https://zendesk.com/developers/">
+                          <h3>API &amp; Developers</h3>
+                          <small>Info for building things with Zendesk</small>
+                        </a>
+                      </li>
+                      <li class='big-link'>
+                        <a onclick="gtag('event', 'click', {event_label: 'Partners', event_category:'navigation'})" href="https://zendesk.com/partner/">
+                          <h3>Partners</h3>
+                          <small>How to locate or become a Zendesk partner</small>
+                        </a>
+                      </li>
+                      
+                      <li class='big-link'>
+                        <a onclick="gtag('event', 'click', {event_label: 'Customer stories', event_category:'navigation'})" href="https://zendesk.com/why-zendesk/customers/">
+                          <h3>Customer stories</h3>
+                          <small>See what success with Zendesk looks like</small>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-links_link">
+            <a onclick="gtag('event', 'click', {event_label: 'Get Started', event_category:'navigation'})" href="https://www.zendesk.com/register/" class="btn btn-zendesk btn-zendesk-darkgreen btn-hover-fill">
+              Get Started
+            </a>
+          </div>
+        </div>
+        <div class="navbar-mobile-btn">
+          <button>☰</button>
+        </div>
+      </div>
+    </nav>
+
+    {% comment %} Modificar HERO {% endcomment %}
+    <div class="hero">
+        
+        {% include 'home/partials/hero.html' %}
+    
+    </div>
+
+
+  </header>
+
+  <main>
+    <!--section id='banner' class='container'>
+      <div class="banner">
+        <div class="banner-content">
+          <div class="banner-content__title">
+            Zendesk CX Academy&nbsp;Live
+          </div>
+          <div class="banner-content__desc">
+          Companies who invest in customer experience early outperform their peers. So how’s it done? <strong>CX Academy Live</strong> is a customer awards event showcasing top-performing CX use cases among high-growth companies. We also have <strong>Alexis Ohanian</strong>, Founder of Seven Seven Six, as our guest speaker for the event. RSVP today!
+          </div>
+          <div class="banner-content__btn">
+            <a target="_blank" onclick="gtag('event', 'click', {event_label: 'Zendesk CX Academy Live', event_category:'banner'})" href="https://zendeskforstartups.com/cxacademylive/" class="btn btn-zendesk-card">
+              More info
+            </a>
+          </div>
+        </div>
+        <div class="banner-img">
+          <img src="<?=base_url();?>assets/images/banner.png?v1" alt="banner-img">
+        </div>
+      </div>
+    </section-->
+
+    <section id="highlight" class='container'>
+        {% include 'home/partials/carousel.html' %}
+    </section>
+
+    <!-- Cards con carousel -->
+    <!-- <section id="articles" class='container'>
+      <div class="grid-cards_horizontal_carousel-controls">
+        <button class='carousel-control-button' id='carousel-control-left'><img src="./assets/images/left-arrow.svg" alt="left-arrow-pic"></button>
+        <button class='carousel-control-button' id='carousel-control-right'><img src="./assets/images/right-arrow.svg" alt="right-arrow-pic"></button>
+      </div>
+        <div class="grid-cards_horizontal_carousel">
+          <div class="placeholder-item__card"></div>
+          <div class="placeholder-item__card"></div>
+          <div class="placeholder-item__card"></div>
+        </div>
+    </section> -->
+    
+    
+
+    <section id="articles" class="container">
+        <div class="grid-cards"> <!-- Acá van las sections -->
+          {% include 'home/partials/sections.html' %}
+        </div>
+    </section>
+    
+  </main>
+
+  <footer class="global-footer">
+    <nav class="container">
+      <div class="grid five-column primary-nav">
+        <div class="row">
+          <div class="col SL_swap" id="smartling-nav-footer-product">
+            <h6>Our Products</h6>
+            <ul class="no-list-style">
+              <li><a href="https://www.zendesk.com/support-suite/">The Support Suite</a></li>
+              <li><a href="https://www.zendesk.com/sales-suite/">The Sales Suite</a></li>
+              <li><a href="https://www.zendesk.com/support/">Support</a></li>
+              <li><a href="https://www.zendesk.com/guide/">Guide</a></li>
+              <li><a href="https://www.zendesk.com/chat/">Chat</a></li>
+              <li><a href="https://www.zendesk.com/talk/">Talk</a></li>
+              <li><a href="https://www.zendesk.com/sell/">Sell</a></li>
+              <li><a href="https://www.zendesk.com/explore/">Explore</a></li>
+              <li><a href="https://www.zendesk.com/gather/">Gather</a></li>
+              <li><a href="https://www.zendesk.com/platform/">Sunshine</a></li>
+              <li><a href="https://www.zendesk.com/conversations/" target="_blank">Sunshine Conversations</a></li>
+              <li><a href="https://www.zendesk.com/apps/">Integrations &amp; Apps</a></li>
+              <li><a href="https://www.zendesk.com/whats-new/">Product Updates</a></li>
+            </ul>
+          </div>
+          <div class="col SL_swap" id="smartling-nav-footer-features">
+            <h6>Top Features</h6>
+            <ul class="no-list-style">
+              <li><a href="https://www.zendesk.com/support/features/customer-service-management-software/">Customer Service Software</a></li>
+              <li><a href="https://www.zendesk.com/help-desk-software/features/ticketing-system/">Ticketing System</a></li>
+              <li><a href="https://www.zendesk.com/guide/features/knowledge-base-software/">Knowledge Base</a></li>
+              <li><a href="https://www.zendesk.com/guide/features/community-software/">Community Forums</a></li>
+              <li><a href="https://www.zendesk.com/help-desk-software/">Help Desk Software</a></li>
+              <li><a href="https://www.zendesk.com/product/zendesk-security/">Security</a></li>
+            </ul>
+          </div>
+          <div class="col SL_swap" id="smartling-nav-footer-resources">
+            <h6>Resources</h6>
+            <ul class="no-list-style">
+              <li><a href="https://support.zendesk.com/hc/en-us/" target="_blank">Product Support</a></li>
+              <li><a href="https://www.zendesk.com/demo/">Request a demo</a></li>
+              <li class="SL_norewrite"><a href="https://www.zendesk.com/blog/">The Library</a></li>
+              <li><a href="https://www.zendesk.com/customer-experience/training/#training">Training</a></li>
+              <li><a href="https://www.zendesk.com/partners/">Services &amp; Partners</a></li>
+              <li><a href="https://relate.zendesk.com/" target="_blank">Relate by Zendesk</a></li>
+              <li><a href="https://www.zendesk.com/support/webinars/">Webinars</a></li>
+              <li><a href="https://www.zendesk.com/why-zendesk/customers/">Customer Stories</a></li>
+              <li><a href="https://www.zendesk.com/customer-experience/">Services</a></li>
+            </ul>
+          </div>
+          <div class="col SL_swap" id="smartling-nav-footer-company">
+            <h6>Company</h6>
+            <ul class="no-list-style">
+              <li><a href="https://www.zendesk.com/about/">About us</a></li>
+              <li><a href="https://www.zendesk.com/company/press/">Press</a></li>
+              <li><a href="https://investor.zendesk.com" target="_blank">Investors</a></li>
+              <li><a href="https://www.zendesk.com/company/events/">Events</a></li>
+              <li><a href="https://jobs.zendesk.com/" target="_blank">Careers</a></li>
+              <li><a href="https://www.zendesk.com/diversity-inclusion/">Diversity &amp; Inclusion</a></li>
+              <li><a href="https://www.zendesk.com/contact/">Contact us</a></li>
+              <li><a href="https://www.zendesk.com/sitemap/">Sitemap</a></li>
+              <li><a href="https://status.zendesk.com" target="_blank">System Status</a></li>
+              <li><a href="https://help.zendesk.com/hc/en-us" target="_blank">Product Help</a></li>
+              <li><a href="https://www.zendesk.com/company/legal/">Legal</a></li>
+            </ul>
+          </div>
+          <div class="col SL_swap" id="smartling-nav-footer-favorites">
+            <h6>Favorite Things</h6>
+            <ul class="no-list-style">
+              <li><a href="https://www.zendesk.com/enterprise/">Zendesk for Enterprise</a></li>
+              <li><a href="https://www.zendesk.com/startups/">Zendesk for Startups</a></li>
+              <li><a href="https://www.zendesk.com/benchmark/">Zendesk Benchmark</a></li>
+              <li><a href="https://www.zendesk.com/small-business/">Zendesk for Small Business</a></li>
+              <li><a href="https://www.zendesk.com/blog/gartner-magic-quadrant-crm/">Gartner CRM Magic Quadrant</a></li>
+              <li><a href="https://www.zendesk.com/customer-experience-trends/">Customer Experience Trends</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="legal-nav">
+        <a href="https://www.zendesk.com/company/customers-partners/terms-of-use/">Terms of Use</a>
+        <a href="https://www.zendesk.com/company/customers-partners/privacy-policy/">Privacy Policy</a>
+        <a href="https://www.zendesk.com/company/policies-procedures/cookie-policy/">Cookie Policy</a>
+        <a href="https://www.zendesk.com/legal/">©Zendesk 2020</a>
+      </div>
+    </nav>
+  </footer>
+  <script src="{% static 'js/jquery.slim.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139241114-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-139241114-4');
+    </script>
+  <script>
+    //const base_url = '<?=base_url();?>';
+  </script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

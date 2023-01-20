@@ -1,0 +1,27 @@
+[
+    {
+        "id":0,
+        "title":"Program Highlight 1",
+        "body":"We are super pleased to announce our new startup membership with AWS Activate and invite you to join us for an upcoming virtual chat about how fast-growing startups invest in and use CX tools. Whether you’re focused on getting to market and landing your first customers or you just closed your seed round, Kristen Durham (Zendesk) and Brian Kale (Bank Novo) join the AWS folks to share why CX matters and the improved results founders can see when customer experience is emphasized on Day 1.",
+        "button":"Grab your spot now",
+        "href":"https://pages.awscloud.com/global-startup-webinar-zendesk-2020-reg.html",
+        "imgUrl":"./assets/images/highlight.jpg"
+    },
+    {
+        "id":1,
+        "title":"Program Highlight 2 ",
+        "body":"We are super pleased to announce our new startup membership with AWS Activate and invite you to join us for an upcoming virtual chat about how fast-growing startups invest in and use CX tools. Whether you’re focused on getting to market and landing your first customers or you just closed your seed round, Kristen Durham (Zendesk) and Brian Kale (Bank Novo) join the AWS folks to share why CX matters and the improved results founders can see when customer experience is emphasized on Day 1.",
+        "button":"Grab your spot now",
+        "href":"https://pages.awscloud.com/global-startup-webinar-zendesk-2020-reg.html",
+        "imgUrl":"./assets/images/highlight.jpg"
+    },
+    {
+        "id":2,
+        "title":"Program Highlight3",
+        "body":"We are super pleased to announce our new startup membership with AWS Activate and invite you to join us for an upcoming virtual chat about how fast-growing startups invest in and use CX tools. Whether you’re focused on getting to market and landing your first customers or you just closed your seed round, Kristen Durham (Zendesk) and Brian Kale (Bank Novo) join the AWS folks to share why CX matters and the improved results founders can see when customer experience is emphasized on Day 1.",
+        "button":"Grab your spot now",
+        "href":"https://pages.awscloud.com/global-startup-webinar-zendesk-2020-reg.html",
+        "imgUrl":"./assets/images/highlight.jpg"
+    }
+
+]

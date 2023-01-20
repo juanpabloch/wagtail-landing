@@ -1,0 +1,9 @@
+{% extends "wagtailadmin/userbar/item_base.html" %}
+{% load i18n wagtailadmin_tags static %}
+
+{% block item_content %}
+    <a href="{% url 'wagtailadmin_home' %}" target="_parent" class="wagtail-userbar-link" role="menuitem" >
+        <img src="{% static 'img/logo-small.png' %}" alt="Custom Project" width="30" style="border-radius: 50px;" />
+        {% trans 'Go to admin' %}
+    </a>
+{% endblock %}

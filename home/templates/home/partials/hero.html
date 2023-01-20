@@ -1,0 +1,33 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        {% if hero %}
+            {% for entry in hero %}
+                <div class="hero-text col col-sm-12 col-lg-7 py-5">
+                    <div>{{ entry.hero_body|richtext }}</div>
+                </div>
+                <div class="col-md-5 d-md-flex justify-content-center align-items-center d-none">
+                    {% image entry.hero_image max-550x550 as image %}
+                    <img class='mx-md-auto w-md-100' src="{{ image.url }}" alt="hero-img" />
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="hero-text col col-sm-12 col-lg-7 py-5">
+                <div>
+                    <h1>Zendesk for Startups</h1>
+                    <h2>Welcome to Startup Central</h2>
+                    <p>
+                    Your virtual hub connecting you with<br> 
+                    our community, product training and other startup&nbsp;resources.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5 d-md-flex justify-content-center align-items-center d-none">
+                <img class='mx-md-auto w-md-100' src="{% static 'images/hero.html' %}" alt="hero-img" />
+            </div>
+        {% endif %}
+    </div>
+</div>

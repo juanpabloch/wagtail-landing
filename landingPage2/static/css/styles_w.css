@@ -1,0 +1,19 @@
+:root {
+    --w-color-primary: #02184C;
+    --w-color-primary-200: #011238f9;
+    --w-color-secondary: #0039FF;
+    --w-color-secondary-400: #02184C;
+}
+
+.w-header h1, .w-panel__heading{
+    color: #02184C;
+}
+
+.content{
+    background: #FFFFFF;
+}
+
+.w-panel__header svg{
+    filter: invert(51%) sepia(19%) saturate(4641%) hue-rotate(1deg) brightness(103%) contrast(104%);
+}
+/* filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%); */

@@ -1,0 +1,37 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% if highlights %}
+  <div class="highlight-carousel"> 
+      <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+        <ol class="carousel-indicators">
+          <!-- Indicators... -->
+            {% for highlight in highlights %}
+              <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter0 == 0 %}active{% endif %}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner"> <!-- Acá van los highlights -->
+          {% for highlight in highlights %}
+              <div data-id="{{forloop.counter0}}" class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+              <div class="highlight-carousel-card">
+                <div class="highlight-carousel-card__image">
+                <img src="{{ highlight.carousel_image_url }}" 
+                  data-img='{{ highlight.carousel_image_url }}'
+                  class="card-img-top"
+                  style="object-fit:cover;"
+                  alt="Sorry! Image not available at this time" 
+                  onError="this.onerror=null;this.src='{% static 'images/default.svg' %}';">
+                </div>
+                <div class="highlight-carousel-card__content">
+                  <h2>{{ highlight.title }}</h2>
+                  <p>{{ highlight.carrousel_body|richtext }}</p>
+                  <a href="{{highlight.carousel_link}}" target="_blank" onclick="gtag('event', 'click', {event_label: '{{ highlight.title }}', event_category:'highlight'})" class="btn btn-zendesk-card">{{ highlight.carrousel_cta }}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+{% endif %}

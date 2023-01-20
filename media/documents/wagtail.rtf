@@ -1,0 +1,135 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Consolas;}{\f1\fnil\fcharset0 Courier New;}}
+{\colortbl ;\red255\green255\blue0;\red0\green0\blue255;\red0\green176\blue80;\red0\green77\blue187;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang10 WAGTAIL (cms django)\par
+vamos a crear un entorno virtual\par
+empezamos instalando wagtail: \f1 pip install wagtail\f0\par
+Wagtail nos provee un comando similar al de django (django-admin startproject) para crear una app. Ejecutando \f1\fs20 wagtail start mysite\f0\fs22  nos va a generar una nueva carpeta mysite (podemos ponerle el nombre que queramos ej.: \f1\fs20 wagtail start blog\f0\fs22 ) con espesificaciones incluyendo las configuraciones iniciales, una pagina home y templates basicos y una app de ejemplo con el nombre search.\par
+una vez terminada la instalacion de la app vamos a la carpeta mysite (o el nombre de la app que creamos) y debemos instalar las dependecias o librerias que contiene wagtail: \f1\fs20 pip install -r requirements.txt\par
+\f0\fs22 Ahora podemos configurar nuestra base de datos en settings.py para poder migrar las tablas que trae wagtail (\highlight1 no pude conectar mysql\highlight0 )\par
+migramos la tablas: \f1\fs20 python maganage.py migrate\f0\fs22\par
+creamos un superuser: \f1\fs20 python manage.py createsuperuser\f0\fs22\par
+ahora ejecutamos el server: \f1\fs20 python manage.py runserver\f0\fs22\par
+listo ya tenemos nuestra app creada y lista para usar y configurar\par
+\par
+ADMIN PANEL de wagtail(/admin)\par
+cuando editamos una pagina podemos encontar estas opciones:\par
+Promocionar: tenemos opciones para el CEO de la pagina\par
+Programar: podemos programar la fecha en la que queremos que se vea una pagina y tambien podemos poner una fecha de expiracion para cuando queremos que se elimine. Podemos seleccionar alcance de la pagina que sea publica o para usuarios registrados\par
+\par
+*si queremos ir al admin panel de django podemos hacerlo con la direccion: /django-admin\par
+\b\fs28 Models \b0\i\fs20 ({{\field{\*\fldinst{HYPERLINK https://docs.wagtail.org/en/stable/topics/pages.html }}{\fldrslt{https://docs.wagtail.org/en/stable/topics/pages.html\ul0\cf0}}}}\f0\fs20 )\fs16\par
+\i0\fs22 todos los modelos que heredan de Page (from wagtail.models import Page) tienen una propiedad llamada template donde se indica el template que queremos que se utilice, en ese template renderizamos la info que queramos en la pagina. Esta propiedad esta implicita al menos que la queramos sobreescribir, que quiere decir si tenemos este modelo:\par
+class BlogPage(Page):\par
+el template por defecto que va a buscar wagtail es <nombre de app>/templates/<nombre de app>/blog_page.html\par
+automaticamente va a ir a buscar ese template, si no lo tenemos debemos agregarlo a la carpeta templates.\par
+\par
+podemos empezar modificando la home page\par
+vamos a home/models.py\par
+en la clase HomePage(Page), le vamos a pasar el template que queremos usar, primero debemos crear una carpeta en mysite (nombre de app) templates/home y dentro creamos nuestra home page que va a reemplazar la que viene por default: home_page.html\par
+
+\pard\sa200\sl240\slmult1\f1\fs20 class HomePage(Page):\par
+    template = 'home/home_page.html'\f0\fs22\par
+
+\pard\sa200\sl276\slmult1 ahora vamos a crear funcionalidades para poder customizar nuestra home page:\par
+content_panels: define las capacidades de edici\'f3n de la pagina. Cuando se agregan campos a content_panels, permite que se editen en la interfaz de Wagtail (admin). Por defecto el unico content_panel que tiene una pagina es el titulo.\par
+en el template podemos usar el titulo de la siguiente manera:\par
+
+\pard\sa200\sl240\slmult1\f1\fs20\{% block content %\}\par
+    <h1>\{\{ page.title \}\}</h1>\par
+\{% endblock content %\}\f0\fs22\par
+
+\pard\sa200\sl276\slmult1 podemos agregar mas campos editables a nuestra pagina de la siguiente manera:\par
+
+\pard\sa200\sl240\slmult1\f1\fs20 from django.db import models\par
+from wagtail.models import Page\par
+from wagtail.admin.edit_handlers import FieldPanel\line\par
+class BlogPage(Page):\par
+    sub_title = models.CharField(max_length=250)\par
+    body = RichTextField(blank=True) \cf3\fs18 //RichTextField es una propiedad de wagtail -> from wagtail.fields import RichTextField\cf0\fs20\par
+    created = models.DateField(auto_now=True)\par
+    \par
+    \cf4 content_panels = Page.content_panels + [\par
+        FieldPanel('created', classname="full"),\par
+        FieldPanel('sub_title', classname="full"),\par
+        FieldPanel('body', classname="full"),\par
+    ]\par
+
+\pard\sa200\sl276\slmult1\cf0\f0\fs22 en el model podemos agregar mas campos como subtitulo, body (es el contenido del post) dentro de content_panels podemos agregarlos con FieldPanel('<campo>'), cuando modificamos un modelo tenemos que hacer las migraciones(makemigrations, migrate)\par
+con esto nos va a aparecer en la pagina admin los campos para poder modificarlos y dentro del template podemos poner lo siguiente:\par
+
+\pard\sa200\sl240\slmult1\f1\fs20\{% load wagtailcore_tags %\} --> nos permite usar el tag richtext\par
+\{% block content %\}\par
+    <h1>\{\{ page.title \}\}</h1>\par
+    <p class="meta">\{\{ page.created \}\}</p>\par
+    <div class="intro">\{\{ page.intro \}\}</div>\par
+    \{\{page.body|richtext\}\}\par
+    <p><a href="\{\{ page.get_parent.url \}\}">Return to Blog</a></p>\par
+\{% endblock content %\}\par
+
+\pard\sa200\sl276\slmult1\f0\fs22\par
+Las paginas en wagtail funcionan como nodos, estos pueden tener hijos o padres, podemos agregar paginas hijas a una pagina creada, estas paginas hijas funcionan como elementos dentro de un objeto (debemos crear un modelo para estas paginas), ejemplo:\par
+creamos una pagina Libros (modelo LibroIndexPage(Page) y el template debera llamarse libro_index_page.html) y dentro de libros podemos crear paginas hijas (modelo LibroPage(Page) y el template debera llamarse libro_page.html) y estas paginas hijas las podemos referenciar como en una lista de libros por ejemplo con un foor loop:\par
+\f1\fs20\{% for post in \cf4 page.get_children\cf0  %\}\par
+      <h2><a href="\{% pageurl post %\}">\{\{ post.title \}\}</a></h2>\par
+      \{\{ post.specific.intro \}\}\par
+      <hr>\par
+\{% endfor %\}\f0\fs22\par
+para traer la lista de hijas tenemos que usar \f1 page.get_children\f0\par
+y tambien vemos \f1\fs20\{% pageurl post %\} \f0\fs22 que funciona igual que \{% url '' %\}\par
+\par
+si queremos por ejempo crear una home page que sea solo una pagina que no se pueda crear mas de una podemos agregar la propiedad:\par
+max_\lang11274 count \lang3082 = 1\lang10\par
+\f1\fs20 class HomePage(Page):\par
+    template = 'home/home_page.html'\par
+    max_count = 1\par
+\f0\fs22\par
+RICHTEXT\par
+es una propiedad de wagtail para que podamos generar un campo de entrada de texto con formato, para poder usarlo debemos importarlo:\par
+\f1\fs20 from wagtail.core.fields import RichTextField\par
+\f0\fs22 dentro del model lo usamos como si fuera un model mas:\par
+\f1\fs20 subtitle = RichTextField()\par
+content_panels = Page.content_panels + [\par
+        FieldPanel('subtitle'),       \par
+    ]\par
+\f0\fs22 y por ultimo en el template colocamos:\par
+\{% load wagtailcore_tags %\}\par
+<p>\{\{page.subtitle|richtext\}\}</p>\par
+\par
+podemos pasarle propiedades:\par
+blank=True --> si queremos que quede vacio\par
+features=['h2', 'h3', 'bold', 'italic', 'link'] --> para seleccionar los formatos disponibles en el cuadro\par
+\par
+\highlight1 buscar bien: from wagtail.images.formats import Format, register_image_format\highlight0\par
+IMAGENES\par
+para poder usar imagenes debemos crear un campo dentro del model de la pagina, este va a referenciar al modelo iagenes que tiene wagtail para poder trabajar con imagenes\par
+
+\pard\sa200\sl240\slmult1\f1\fs20 feed_image = models.ForeignKey(\par
+        'wagtailimages.Image',\par
+        null=True,\par
+        blank=True,\par
+        on_delete=models.SET_NULL,\par
+        related_name='+'\par
+)\par
+\f0\fs22 content_panels = Page.content_panels + [\par
+        FieldPanel('feed_image', classname="full"),        \par
+]\par
+\par
+ahora en el template vamos a colocar:\par
+\{% load wagtailimages_tags %\}\par
+y donde queremos la imagen colocamos el tag: \par
+\{% image page.feed_image max-500x500 %\} \par
+este debe contener el maximo tama\'f1o para la imagen ejemplo: max-500x500\par
+tambien podemos pasarle width-numero o heigth-numero:\par
+\{% image page.feed_image width-1500 %\}\par
+tambien podemos pasarle scale-5:\par
+aca tenemos todas la propiedades: {{\field{\*\fldinst{HYPERLINK https://docs.wagtail.org/en/stable/topics/images.html?highlight=image }}{\fldrslt{https://docs.wagtail.org/en/stable/topics/images.html?highlight=image\ul0\cf0}}}}\ul\f0\fs22\par
+\ulnone\par
+\fs28 Creamos una Landing\fs22\par
+\par
+\par
+\par
+\par
+\par
+}
+ 

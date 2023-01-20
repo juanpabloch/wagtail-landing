@@ -1,0 +1,21 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% if cards_sections %}
+    {% for section in cards_sections %}
+      <div data-id="{{forloop.counter0}}" class="card card-zendesk" >
+        <a href="{{section.card_link}}" target="_blank" class="img_link" onclick="gtag('event', 'click', {event_label: '{{section.title}}', event_category:'sections'})">
+          {% comment %} <img src="<?= $section->imgUrl;?>" data-img="<?= $section->imgUrl;?>" class="card-img-top" style="object-fit:cover;" alt="Sorry! Image not available at this time" onError="this.onerror=null;this.src='{% static 'images/default.svg' %}';"> {% endcomment %}
+            {% image section.card_image max-550x550 as image %}
+            <img class="card-img-top" src="{{image.url}}" data-img="{{image.url}}" style="object-fit:cover;" alt="Sorry! Image not available at this time" onError="this.onerror=null;this.src='{% static 'images/default.svg' %}';">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ section.title }}</h5>
+          <p class="card-text">{{ section.card_body|richtext }}</p>
+          <a href="{{ section.card_link }}"  target="_blank" class="btn btn-zendesk-card" onclick="gtag('event', 'click', {event_label: '{{section.title}}', event_category:'sections'})">{{section.card_cta}}</a>
+        </div>
+      </div>
+    {% endfor %}
+{% endif %}
+{% comment %} puedo usar for empy si no me llegan elementos en el queryset {% endcomment %}

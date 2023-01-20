@@ -1,0 +1,26 @@
+{% extends "wagtailadmin/userbar/base.html" %}
+{% load static %}
+{% load wagtailadmin_tags i18n %}
+
+{% comment %} {% block branding_logo %}
+    <img src="{% static 'img/jesus.png' %}" alt="Custom Project" width="60" />
+{% endblock %} {% endcomment %}
+
+{% block branding_logo %}
+  <div style="display: none">
+    <svg>
+        <defs>
+          <!-- Replace 'wagtail.svg' with whatever you want from the icons directory, e.g. 'cogs.svg' -->
+          {% include "wagtailadmin/icons/cogs.svg" %}
+          {% include "wagtailadmin/icons/folder-open-inverse.svg" %}
+          {% include "wagtailadmin/icons/edit.svg" %}
+          {% include "wagtailadmin/icons/plus.svg" %}
+          {% include "wagtailadmin/icons/tick.svg" %}
+          {% include "wagtailadmin/icons/cross.svg" %}
+        </defs>
+    </svg>
+  </div>
+  <!-- Update the icon name -->
+  {% comment %} {% icon name="cogs" class_name="wagtail-userbar-icon" %} {% endcomment %}
+  <img src="{% static 'img/logo.png' %}" alt="Custom Project" width="55" style="border-radius: 50px;" />
+{% endblock %}
